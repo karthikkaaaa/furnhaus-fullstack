@@ -35,11 +35,10 @@ const handleSubmit = async (e) => {
       password: form.password
     });
 
-    console.log(res); // ✅ allowed here
+    console.log(res); 
 
     localStorage.setItem("user", JSON.stringify(res.data.user)); 
 
-    // ✅ CLEAR OLD USER DATA
 localStorage.removeItem("cart");
 localStorage.removeItem("wishlist");
  clearCart();

@@ -224,7 +224,6 @@ import ProductCard from "../components/ProductCard";
 export default function ProductDetail() {
   const { id } = useParams();
 
-  // ✅ ALL HOOKS AT TOP
   const [product, setProduct] = useState(null);
   const [related, setRelated] = useState([]);
   const [quantity, setQuantity] = useState(1);
@@ -233,14 +232,12 @@ export default function ProductDetail() {
   const { toggle, isWishlisted } = useWishlist();
   const { addToast } = useToast();
 
-  // ✅ FETCH PRODUCT
   useEffect(() => {
     fetch(`http://127.0.0.1:8000/api/products/${id}/`)
       .then(res => res.json())
       .then(data => setProduct(data));
   }, [id]);
 
-  // ✅ FETCH RELATED
   useEffect(() => {
     if (product) {
       fetch(`http://127.0.0.1:8000/api/products/?category=${product.category_name}`)
@@ -249,7 +246,6 @@ export default function ProductDetail() {
     }
   }, [product]);
 
-  // ✅ AFTER ALL HOOKS → condition
   if (!product) {
     return <p className="text-center mt-20">Loading...</p>;
   }

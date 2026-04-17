@@ -104,14 +104,14 @@ const handlePayment = async () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        amount: grandTotal, // ✅ use your total
+        amount: grandTotal, 
       }),
     });
 
     const data = await res.json();
 
     const options = {
-      key: "rzp_test_SbWdovEmpEyzTH", // ✅ your real key
+      key: "rzp_test_SbWdovEmpEyzTH", 
       amount: data.amount,
       currency: "INR",
       name: "FurnHaus",
@@ -121,8 +121,7 @@ const handlePayment = async () => {
       handler: function (response) {
         addToast("✅ Payment successful!", "success");
 
-        // 🔥 VERY IMPORTANT
-        handleSubmit(); // call your existing order function
+        handleSubmit(); 
       },
 
       prefill: {
@@ -345,9 +344,9 @@ function Field({ label, name, type = 'text', placeholder, half, form, set, error
 <button
   onClick={() => {
     if (form.payment === "cod") {
-      handleSubmit();   // COD → normal order
+      handleSubmit();   
     } else {
-      handlePayment();  // Online → payment first
+      handlePayment();  
     }
   }}
   disabled={processing}

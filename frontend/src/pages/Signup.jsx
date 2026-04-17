@@ -43,7 +43,7 @@ console.log("Sending data:", {
       // email: form.email,
       // password: form.password
         name: form.name.trim(),
-  username: form.name.trim(),   // 🔥 add both
+  username: form.name.trim(),  
   email: form.email,
   password: form.password
     });

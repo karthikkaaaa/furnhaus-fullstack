@@ -138,7 +138,6 @@ export default function Sofas() {
   const [apiProducts, setApiProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ ONLY ONE useEffect
   useEffect(() => {
     API.get("products/?category=sofas")
       .then(res => {
@@ -151,7 +150,6 @@ export default function Sofas() {
       });
   }, []);
 
-  // ✅ Clean data
   const sofas = apiProducts;
 
   if (loading) return <h2>Loading chairs...</h2>;

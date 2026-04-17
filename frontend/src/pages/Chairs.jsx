@@ -57,9 +57,8 @@ export default function Chairs() {
   const [apiProducts, setApiProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ ONLY ONE useEffect
   useEffect(() => {
-    API.get("products/?category=chairs") // ⚠️ lowercase
+    API.get("products/?category=chairs")
       .then(res => {
         setApiProducts(res.data);
         setLoading(false);
@@ -70,7 +69,6 @@ export default function Chairs() {
       });
   }, []);
 
-  // ✅ Clean data
   const chairs = apiProducts;
 
   if (loading) return <h2>Loading chairs...</h2>;

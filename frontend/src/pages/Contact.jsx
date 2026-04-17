@@ -39,13 +39,13 @@ const handleSubmit = async (e) => {
       body: JSON.stringify({
         name: form.name,
         email: form.email,
-        phone: form.phone,   // ✅ FIXED
+        phone: form.phone,   
         subject: form.subject,
         message: form.message,
       }),
     });
 
-    // ✅ CHECK RESPONSE
+    
     if (!res.ok) {
       throw new Error("Server error");
     }
